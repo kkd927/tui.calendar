@@ -408,7 +408,7 @@ Handlebars.registerHelper({
     },
 
     'titlePlaceholder-tmpl': function() {
-        return 'Subject';
+        return 'Meetup Name';
     },
 
     'locationPlaceholder-tmpl': function() {
