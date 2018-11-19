@@ -189,6 +189,9 @@ function Schedule() {
      */
     this.raw = null;
 
+    this.website = '';
+    this.tag = '';
+
     // initialize model id
     util.stamp(this);
 }
@@ -251,6 +254,8 @@ Schedule.prototype.init = function(options) {
     this.goingDuration = options.goingDuration || 0;
     this.comingDuration = options.comingDuration || 0;
     this.state = options.state || '';
+    this.website = options.website || '';
+    this.tags = options.tags || '';
 
     if (this.isAllDay) {
         this.setAllDayPeriod(options.start, options.end);

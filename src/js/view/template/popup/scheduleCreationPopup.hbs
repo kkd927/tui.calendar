@@ -18,12 +18,9 @@
         </div>
         <div class="{{CSS_PREFIX}}popup-section">
             <div class="{{CSS_PREFIX}}popup-section-item {{CSS_PREFIX}}section-title">
-            <span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-title"></span>
-            <input id="{{CSS_PREFIX}}schedule-title" class="{{CSS_PREFIX}}content" placeholder="{{titlePlaceholder-tmpl}}" value="{{title}}"></span>
+				<span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-title"></span>
+				<input id="{{CSS_PREFIX}}schedule-title" class="{{CSS_PREFIX}}content" placeholder="{{titlePlaceholder-tmpl}}" value="{{title}}"></span>
             </div>
-            <button id="{{CSS_PREFIX}}schedule-private" class="{{CSS_PREFIX}}button {{CSS_PREFIX}}section-private{{#unless isPrivate}} {{CSS_PREFIX}}public{{/unless}}">
-            <span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-private"></span>
-            </button>
         </div>
         <div class="{{CSS_PREFIX}}popup-section">
             <div class="{{CSS_PREFIX}}popup-section-item {{CSS_PREFIX}}section-location">
@@ -31,6 +28,18 @@
                 <input id="{{CSS_PREFIX}}schedule-location" class="{{CSS_PREFIX}}content" placeholder="{{locationPlaceholder-tmpl}}" value="{{location}}"></span>
             </div>
         </div>
+        <div class="{{CSS_PREFIX}}popup-section">
+			<div class="{{CSS_PREFIX}}popup-section-item {{CSS_PREFIX}}section-website">
+			<span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-website"></span>
+				<input id="{{CSS_PREFIX}}schedule-website" class="{{CSS_PREFIX}}content" placeholder="{{websitePlaceholder-tmpl}}" value="{{website}}"></span>
+			</div>
+		</div>
+		<div class="{{CSS_PREFIX}}popup-section">
+			<div class="{{CSS_PREFIX}}popup-section-item {{CSS_PREFIX}}section-title">
+				<span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-title"></span>
+				<input id="{{CSS_PREFIX}}schedule-tags" class="{{CSS_PREFIX}}content" placeholder="{{tagsPlaceholder-tmpl}}" value="{{tags}}"></span>
+			</div>
+		</div>
         <div class="{{CSS_PREFIX}}popup-section">
             <div class="{{CSS_PREFIX}}popup-section-item {{CSS_PREFIX}}section-start-date">
                 <span class="{{CSS_PREFIX}}icon {{CSS_PREFIX}}ic-date"></span>

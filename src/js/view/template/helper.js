@@ -396,15 +396,15 @@ Handlebars.registerHelper({
     },
 
     'popupIsAllDay-tmpl': function() {
-        return 'All day';
+        return '종일';
     },
 
     'popupStateFree-tmpl': function() {
-        return 'Free';
+        return '무료';
     },
 
     'popupStateBusy-tmpl': function() {
-        return 'Busy';
+        return '유료';
     },
 
     'titlePlaceholder-tmpl': function() {
@@ -413,6 +413,14 @@ Handlebars.registerHelper({
 
     'locationPlaceholder-tmpl': function() {
         return 'Location';
+    },
+
+    'websitePlaceholder-tmpl': function() {
+        return 'Website';
+    },
+
+    'tagsPlaceholder-tmpl': function() {
+        return 'Tags';
     },
 
     'startDatePlaceholder-tmpl': function() {
@@ -440,6 +448,12 @@ Handlebars.registerHelper({
     },
     'popupDetailLocation-tmpl': function(schedule) {
         return schedule.location;
+    },
+    'popupDetailWebsite-tmpl': function(schedule) {
+        return schedule.website;
+    },
+    'popupDetailTags-tmpl': function(schedule) {
+        return schedule.tags;
     },
     'popupDetailUser-tmpl': function(schedule) {
         var creator = util.pick(schedule, 'raw', 'creator', 'name');

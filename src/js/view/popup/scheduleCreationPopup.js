@@ -242,6 +242,7 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
     var cssPrefix = config.cssPrefix;
     var title, isPrivate, location, isAllDay, startDate, endDate, state;
     var start, end, calendarId;
+    var website, tags;
 
     if (!domutil.hasClass(target, className) && !domutil.closest(target, '.' + className)) {
         return false;
@@ -261,10 +262,12 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
         return true;
     }
 
-    isPrivate = !domutil.hasClass(domutil.get(cssPrefix + 'schedule-private'), config.classname('public'));
+    // isPrivate = !domutil.hasClass(domutil.get(cssPrefix + 'schedule-private'), config.classname('public'));
     location = domutil.get(cssPrefix + 'schedule-location');
     state = domutil.get(cssPrefix + 'schedule-state');
     isAllDay = !!domutil.get(cssPrefix + 'schedule-allday').checked;
+    website = domutil.get(cssPrefix + 'schedule-website');
+    tags = domutil.get(cssPrefix + 'schedule-tags');
 
     if (isAllDay) {
         startDate.setHours(0);
@@ -296,7 +299,9 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
                 isAllDay: isAllDay,
                 state: state.innerText,
                 triggerEventName: 'click',
-                id: this._schedule.id
+                id: this._schedule.id,
+                website: website.value,
+                tags: tags.value
             },
             start: start,
             end: end,
@@ -319,7 +324,9 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
             start: new TZDate(startDate),
             end: new TZDate(endDate),
             isAllDay: isAllDay,
-            state: state.innerText
+            state: state.innerText,
+            website: website.value,
+            tags: tags.value
         });
     }
 
