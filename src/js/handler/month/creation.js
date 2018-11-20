@@ -227,6 +227,7 @@ MonthCreation.prototype._onDragEnd = function(dragEndEvent) {
  * @param {MouseEvent} e - Native MouseEvent
  */
 MonthCreation.prototype._onDblClick = function(e) {
+    /*
     var eventData, range;
 
     if (!isElementWeekdayGrid(e.target)) {
@@ -247,6 +248,7 @@ MonthCreation.prototype._onDblClick = function(e) {
     });
 
     this._requestOnClick = false;
+    */
 };
 
 /**
@@ -255,12 +257,14 @@ MonthCreation.prototype._onDblClick = function(e) {
  * @param {MouseEvent} e - Native MouseEvent
  */
 MonthCreation.prototype._onClick = function(e) {
+    /*
     var self = this;
     var eventData, range;
 
     if (!isElementWeekdayGrid(e.target)) {
         return;
     }
+
 
     eventData = getMousePosDate(this.monthView)(e.originEvent);
 
@@ -280,6 +284,7 @@ MonthCreation.prototype._onClick = function(e) {
         }
         self._requestOnClick = false;
     }, CLICK_DELAY);
+    */
 };
 
 /**

@@ -78,13 +78,6 @@ module.exports = {
             test: /\.js$/,
             use: [
                 preprocessLoader,
-                {
-                    loader: 'eslint-loader',
-                    options: {
-                        failOnError: isProduction,
-                        cache: !isProduction
-                    }
-                }
             ],
             exclude: /node_modules|bower_components/
         }, {

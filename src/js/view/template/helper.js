@@ -469,6 +469,12 @@ Handlebars.registerHelper({
     'popupDelete-tmpl': function() {
         return 'Delete';
     },
+    'popupGoToLink-tmpl': function() {
+        return '자세히 보기';
+    },
+    'popupShare-tmpl': function() {
+        return '공유하기';
+    },
     'timezoneDisplayLabel-tmpl': function(timezoneOffset, displayLabel) {
         var gmt, hour, minutes;
 

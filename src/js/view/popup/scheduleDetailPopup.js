@@ -76,6 +76,10 @@ ScheduleDetailPopup.prototype._onClick = function(clickEvent) {
     this._onClickEditSchedule(target);
 
     this._onClickDeleteSchedule(target);
+
+    this._onClickGotoLinkSchedule(target);
+
+    this._onClickShareSchedule(target);
 };
 
 /**
@@ -109,6 +113,24 @@ ScheduleDetailPopup.prototype._onClickDeleteSchedule = function(target) {
         });
 
         this.hide();
+    }
+};
+
+ScheduleDetailPopup.prototype._onClickGotoLinkSchedule = function(target) {
+    var className = config.classname('popup-go2link');
+
+    if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
+        if (this._schedule.website) {
+            window.open(this._schedule.website, '_blank');
+        }
+    }
+};
+
+ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
+    var className = config.classname('popup-share');
+
+    if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
+        // a
     }
 };
 
