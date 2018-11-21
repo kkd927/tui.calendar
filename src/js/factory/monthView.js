@@ -128,6 +128,7 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
     // binding popup for schedule detail
     if (options.useDetailPopup) {
         detailView = new ScheduleDetailPopup(layoutContainer, baseController.calendars);
+
         onShowDetailPopup = function(eventData) {
             var scheduleId = eventData.schedule.calendarId;
             eventData.calendar = common.find(baseController.calendars, function(calendar) {
@@ -234,6 +235,7 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
 
     return {
         view: monthView,
+		detailView: detailView,
         refresh: function() {
             monthView.vLayout.refresh();
         },

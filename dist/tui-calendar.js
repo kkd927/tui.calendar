@@ -1,6 +1,6 @@
 /*!
  * TOAST UI Calendar
- * @version 1.8.0 | Tue Nov 20 2018
+ * @version 1.8.0 | Wed Nov 21 2018
  * @author NHNEnt FE Development Lab <dl_javascript@nhnent.com>
  * @license MIT
  */
@@ -9205,6 +9205,7 @@ Calendar.prototype.changeView = function(newViewName, force) {
     this._openCreationPopup = created.openCreationPopup;
     this._showCreationPopup = created.showCreationPopup;
     this._hideMoreView = created.hideMoreView;
+    this._detailView = created.detailView;
 
     this.move();
     this.render();
@@ -9373,6 +9374,21 @@ Calendar.prototype.openCreationPopup = function(schedule) {
     if (this._openCreationPopup) {
         this._openCreationPopup(schedule);
     }
+};
+
+Calendar.prototype.openDetailPopup = function(scheduleId, calendarId) {
+    var sc = this.getSchedule(scheduleId, calendarId);
+    var el = this.getElement(scheduleId, calendarId);
+
+    var event = {
+        schedule: sc,
+        calendar: this,
+        event: {
+            target: el
+        }
+    };
+
+    this._detailView.render(event);
 };
 
 /**
@@ -9678,6 +9694,7 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
     // binding popup for schedule detail
     if (options.useDetailPopup) {
         detailView = new ScheduleDetailPopup(layoutContainer, baseController.calendars);
+
         onShowDetailPopup = function(eventData) {
             var scheduleId = eventData.schedule.calendarId;
             eventData.calendar = common.find(baseController.calendars, function(calendar) {
@@ -9784,6 +9801,7 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
 
     return {
         view: monthView,
+		detailView: detailView,
         refresh: function() {
             monthView.vLayout.refresh();
         },

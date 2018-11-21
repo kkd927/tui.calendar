@@ -1278,6 +1278,7 @@ Calendar.prototype.changeView = function(newViewName, force) {
     this._openCreationPopup = created.openCreationPopup;
     this._showCreationPopup = created.showCreationPopup;
     this._hideMoreView = created.hideMoreView;
+    this._detailView = created.detailView;
 
     this.move();
     this.render();
@@ -1446,6 +1447,21 @@ Calendar.prototype.openCreationPopup = function(schedule) {
     if (this._openCreationPopup) {
         this._openCreationPopup(schedule);
     }
+};
+
+Calendar.prototype.openDetailPopup = function(scheduleId, calendarId) {
+    var sc = this.getSchedule(scheduleId, calendarId);
+    var el = this.getElement(scheduleId, calendarId);
+
+    var event = {
+        schedule: sc,
+        calendar: this,
+        event: {
+            target: el
+        }
+    };
+
+    this._detailView.render(event);
 };
 
 /**
