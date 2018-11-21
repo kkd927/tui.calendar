@@ -9379,10 +9379,13 @@ Calendar.prototype.openCreationPopup = function(schedule) {
 Calendar.prototype.openDetailPopup = function(scheduleId, calendarId) {
     var sc = this.getSchedule(scheduleId, calendarId);
     var el = this.getElement(scheduleId, calendarId);
+    var cl = this._controller.calendars.find(function(calendar) {
+		return calendar.id == calendarId
+	});
 
     var event = {
         schedule: sc,
-        calendar: this,
+        calendar: cl,
         event: {
             target: el
         }
