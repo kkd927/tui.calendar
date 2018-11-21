@@ -19537,7 +19537,7 @@ ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
 		$input.value = url;
 		document.body.appendChild($input);
 		$input.select();
-		var success = document.execCommand("copy")
+		var success = document.execCommand("copy");
         $input.remove();
 
 		if (success) {
