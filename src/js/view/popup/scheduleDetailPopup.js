@@ -130,7 +130,23 @@ ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
     var className = config.classname('popup-share');
 
     if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
-        // a
+        console.log(this._schedule);
+        console.log(this._calendar);
+
+        var url = window.location.href + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id;
+
+		var $input = document.createElement('input');
+		$input.value = url;
+		document.body.appendChild($input);
+		$input.select();
+		var success = document.execCommand("copy")
+        $input.remove();
+
+		if (success) {
+		    window.alert('링크 주소가 클립보드에 복사되었습니다.');
+        } else {
+			window.alert('복사에 실패하였습니다.');
+        }
     }
 };
 
