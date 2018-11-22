@@ -130,7 +130,7 @@ ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
     var className = config.classname('popup-share');
 
     if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
-        var url = window.location.href + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id;
+        var url = window.location.origin + window.location.pathname + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id;
 
 		var $input = document.createElement('input');
 		$input.value = url;
