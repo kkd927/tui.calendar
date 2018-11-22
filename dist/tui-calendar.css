@@ -1064,6 +1064,12 @@ input[type='checkbox'].tui-full-calendar-checkbox-round + span {
   font-size: 15px;
   font-weight: bold;
   line-height: 1.6;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  height: 20px;
+  width: 265px;
 }
 .tui-full-calendar-popup-detail .tui-full-calendar-schedule-private {
   display: none;
