@@ -989,6 +989,14 @@ Calendar.prototype._onClickMore = function(clickMoreSchedule) {
     this.fire('clickMore', clickMoreSchedule);
 };
 
+Calendar.prototype._onGoToLink = function(e) {
+    this.fire('beforeGoToLinkSchedule', e);
+};
+
+Calendar.prototype._onClickShare = function(e) {
+	this.fire('beforeShareSchedule', e);
+};
+
 /**
  * dayname click event handler
  * @fires Calendar#clickDayname
@@ -1155,10 +1163,22 @@ Calendar.prototype._onClickTimezonesCollapseBtn = function(timezonesCollapsed) {
 Calendar.prototype._toggleViewSchedule = function(isAttach, view) {
     var self = this,
         handler = view.handler,
-        method = isAttach ? 'on' : 'off';
+        method = isAttach ? 'on' : 'off',
+        isDayGridHandlerRegist = false;
 
     util.forEach(handler.click, function(clickHandler) {
         clickHandler[method]('clickSchedule', self._onClick, self);
+
+        if (clickHandler.constructor.name === "DayGridClick") {
+            if (isDayGridHandlerRegist) {
+                return;
+            }
+
+			isDayGridHandlerRegist = true;
+        }
+
+		clickHandler[method]('beforeGoToLinkSchedule', self._onGoToLink, self);
+		clickHandler[method]('beforeShareSchedule', self._onClickShare, self);
     });
 
     util.forEach(handler.dayname, function(clickHandler) {

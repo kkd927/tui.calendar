@@ -120,6 +120,10 @@ ScheduleDetailPopup.prototype._onClickGotoLinkSchedule = function(target) {
     var className = config.classname('popup-go2link');
 
     if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
+		this.fire('beforeGoToLinkSchedule', {
+			schedule: this._schedule
+		});
+
         if (this._schedule.website) {
             window.open(this._schedule.website, '_blank');
         }
@@ -130,6 +134,10 @@ ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
     var className = config.classname('popup-share');
 
     if (domutil.hasClass(target, className) || domutil.closest(target, '.' + className)) {
+		this.fire('beforeShareSchedule', {
+			schedule: this._schedule
+		});
+
         var url = window.location.origin + window.location.pathname + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id;
 
 		var $input = document.createElement('input');

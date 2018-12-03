@@ -53,6 +53,8 @@ MonthClick.prototype.destroy = function() {
 MonthClick.prototype._onClick = function(clickEvent) {
     var self = this,
         moreElement,
+        detailElement,
+        shareElement,
         scheduleCollection = this.baseController.schedules,
         blockElement = domutil.closest(clickEvent.target, config.classname('.weekday-schedule-block'))
                     || domutil.closest(clickEvent.target, config.classname('.month-more-schedule'));
@@ -61,6 +63,24 @@ MonthClick.prototype._onClick = function(clickEvent) {
         clickEvent.target,
         config.classname('.weekday-exceed-in-month')
     );
+
+    detailElement = domutil.closest(
+        clickEvent.target,
+        config.classname('.popup-go2link')
+    );
+
+    shareElement = domutil.closest(
+		clickEvent.target,
+		config.classname('.popup-share')
+	);
+
+    if (detailElement) {
+        self.fire('beforeGoToLinkSchedule', {});
+    }
+
+    if (shareElement) {
+        self.fire('beforeShareSchedule', {});
+    }
 
     if (moreElement) {
         self.fire('clickMore', {

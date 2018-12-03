@@ -75,10 +75,16 @@
             }
 
             return true;
-        }
+        },
+        'beforeGoToLinkSchedule': function() {
+            console.log('beforeGoToLinkSchedule !!!');
+		},
+        'beforeShareSchedule': function() {
+            console.log('beforeShareSchedule !!!');
+		}
     });
 
-    document.getElementById('calendar').addEventListener('keydown', e => {
+    document.getElementById('calendar').addEventListener('keydown', function(e) {
         console.log('keydown', e);
     });
 

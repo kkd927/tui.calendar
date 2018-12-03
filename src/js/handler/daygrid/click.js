@@ -75,6 +75,27 @@ DayGridClick.prototype._onClick = function(clickEvent) {
         ),
         containsTarget = this.view.container.contains(target);
     var blockElement, scheduleElement;
+    var detailElement, shareElement;
+
+	detailElement = domutil.closest(
+		clickEvent.target,
+		config.classname('.popup-go2link')
+	);
+
+	shareElement = domutil.closest(
+		clickEvent.target,
+		config.classname('.popup-share')
+	);
+
+	if (detailElement) {
+		self.fire('beforeGoToLinkSchedule', {});
+		return;
+	}
+
+	if (shareElement) {
+		self.fire('beforeShareSchedule', {});
+		return;
+	}
 
     if (!containsTarget) {
         return;
