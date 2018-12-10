@@ -138,7 +138,13 @@ ScheduleDetailPopup.prototype._onClickShareSchedule = function(target) {
 			schedule: this._schedule
 		});
 
-        var url = window.location.origin + window.location.pathname + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id;
+		var startDate = this._schedule.start;
+		var year = startDate.getFullYear();
+		var month = parseInt(startDate.getMonth() + 1);
+
+		month = parseInt(month / 10) === 1 ? month : "0" + month;
+
+        var url = window.location.origin + window.location.pathname + '?calendar=' + this._calendar.id + "&schedule=" + this._schedule.id + "&date=" + year + "-" + month;
 
 		var $input = document.createElement('input');
 		$input.value = url;
