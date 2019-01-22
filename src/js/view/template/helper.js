@@ -408,15 +408,15 @@ Handlebars.registerHelper({
     },
 
     'titlePlaceholder-tmpl': function() {
-        return 'Meetup Name';
+        return 'Meetup Name (필수)';
     },
 
     'locationPlaceholder-tmpl': function() {
-        return 'Location';
+        return 'Location (필수)';
     },
 
     'websitePlaceholder-tmpl': function() {
-        return 'Website';
+        return 'Website (필수)';
     },
 
     'tagsPlaceholder-tmpl': function() {

@@ -249,10 +249,12 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
     }
 
     title = domutil.get(cssPrefix + 'schedule-title');
+	location = domutil.get(cssPrefix + 'schedule-location');
+	website = domutil.get(cssPrefix + 'schedule-website');
     startDate = new TZDate(this.rangePicker.getStartDate());
     endDate = new TZDate(this.rangePicker.getEndDate());
 
-    if (!title.value) {
+    if (!title.value || !location.value || !website.value) {
         title.focus();
 
         return true;
@@ -263,10 +265,9 @@ ScheduleCreationPopup.prototype._onClickSaveSchedule = function(target) {
     }
 
     // isPrivate = !domutil.hasClass(domutil.get(cssPrefix + 'schedule-private'), config.classname('public'));
-    location = domutil.get(cssPrefix + 'schedule-location');
+
     state = domutil.get(cssPrefix + 'schedule-state');
     isAllDay = !!domutil.get(cssPrefix + 'schedule-allday').checked;
-    website = domutil.get(cssPrefix + 'schedule-website');
     tags = domutil.get(cssPrefix + 'schedule-tags');
 
     if (isAllDay) {
